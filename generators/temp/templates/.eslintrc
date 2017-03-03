@@ -1,0 +1,46 @@
+{
+  "parser": "babel-eslint",
+  "plugins": [
+    "flowtype"
+  ],
+  "extends": ["airbnb", "plugin:flowtype/recommended"],
+  "rules": {
+      "comma-dangle": "off", // keeping to comma dangle threw an error when running yeoman generators, so turned it off
+      "no-underscore-dangle": [
+        "error",
+        {
+          "allowAfterThis": true // Needed as yeoman considers methods starting with _ as private
+        }
+      ],
+      "max-lines": [
+        "error",
+        {
+          "max": 100,
+          "skipBlankLines": true,
+          "skipComments": true
+        }
+      ],
+      "max-len": [
+        "error",
+        {
+          "code": 80,
+          "ignoreStrings": true,
+          "ignoreUrls": true,
+          "ignoreRegExpLiterals": true
+        }
+      ],
+      "class-methods-use-this": [
+        "error",
+        {
+          "exceptMethods": [
+            "initializing" //  Needed for Yeoman generators
+          ]
+        }
+      ]
+  },
+  "settings": {
+    "flowtype": {
+      "onlyFilesWithFlowAnnotation": false
+    }
+  }
+}

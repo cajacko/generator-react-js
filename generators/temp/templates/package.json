@@ -1,0 +1,52 @@
+{
+  "name": "templates",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:dev": "webpack --env=dev --progress --profile --colors",
+    "build:prod": "webpack --env=prod --progress --profile --colors",
+    "flow:start": "flow start --all",
+    "flow": "flow",
+    "lint": "eslint **/*.js",
+    "eslint": "eslint",
+    "flow:check": "flow check --all"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "6.13.2",
+    "babel-eslint": "7.1.1",
+    "babel-loader": "6.2.4",
+    "babel-preset-es2015": "6.13.2",
+    "babel-preset-react": "6.11.1",
+    "babel-preset-stage-2": "6.13.0",
+    "clean-webpack-plugin": "0.1.15",
+    "css-loader": "0.23.1",
+    "eslint": "3.16.1",
+    "eslint-config-airbnb": "14.1.0",
+    "eslint-plugin-flowtype": "2.30.0",
+    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-jsx-a11y": "4.0.0",
+    "eslint-plugin-react": "6.10.0",
+    "postcss-loader": "0.9.1",
+    "react-hot-loader": "3.0.0-beta.6",
+    "style-loader": "0.13.1",
+    "webpack-dev-server": "2.1.0-beta.0"
+  },
+  "dependencies": {
+    "babel-cli": "6.23.0",
+    "babel-plugin-transform-flow-strip-types": "6.22.0",
+    "clean-webpack-plugin": "0.1.15",
+    "flow-bin": "0.40.0",
+    "loadash": "0.0.1",
+    "moment": "2.17.1",
+    "webpack": "2.1.0-beta.25",
+    "webpack-bundle-analyzer": "2.3.0",
+    "webpack-cleanup-plugin": "0.5.1",
+    "webpack-manifest-plugin": "1.1.0",
+    "webpack-merge": "3.0.0"
+  }
+}
