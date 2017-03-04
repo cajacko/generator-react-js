@@ -40,7 +40,11 @@
   },
   "settings": {
     "flowtype": {
-      "onlyFilesWithFlowAnnotation": false
+      "onlyFilesWithFlowAnnotation": true
     }
-  }
+  },
+  "globals": {
+        "document": false,
+        "window": false
+    }
 }

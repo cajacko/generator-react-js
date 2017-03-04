@@ -1,20 +1,11 @@
-import _ from 'lodash';
-import './test';
+// @flow
 
-// const moment = require('moment');
-// console.log('hello');
-
-// console.log(moment().format());
-
-function component() {
-  const element = document.createElement('div');
-
-  /* lodash is required for the next line to work */
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-
-  return element;
+function add(num1: number, num2: number) {
+  return num1 + num2;
 }
 
-// if (document.body) {
-  document.body.appendChild(component());
-// }
+export default function () {
+  const x: number = add(3, 0);
+
+  return x;
+}
