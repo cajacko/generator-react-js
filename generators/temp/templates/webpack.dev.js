@@ -36,7 +36,17 @@ module.exports = function webpackConfig() {
       // Split all node modules into seperate bundle
       new webpack.optimize.CommonsChunkPlugin({
         name: 'vendor',
-        minChunks: module => module.context && module.context.indexOf('node_modules') !== -1
+        minChunks: (module) => {
+          if (!module.context) {
+            return false;
+          }
+
+          if (module.context.indexOf('node_modules') !== -1) {
+            return true;
+          }
+
+          return false;
+        }
       }),
       // CSplit out the manifest
       new webpack.optimize.CommonsChunkPlugin({
