@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run lint && npm run flow:skip",
     "build:dev": "webpack --env=dev --progress --profile --colors",
     "build:prod": "webpack --env=prod --progress --profile --colors",
-    "flow": "flow",
+    "flow": "flowcheck",
+    "flow:skip": "flowcheck check --skip-check",
     "lint": "eslint **/*.js",
     "eslint": "eslint",
     "flow:check": "flow check"
@@ -40,7 +41,7 @@
     "babel-cli": "6.23.0",
     "babel-plugin-transform-flow-strip-types": "6.22.0",
     "clean-webpack-plugin": "0.1.15",
-    "flow-bin": "0.40.0",
+    "flow-check": "0.2.0",
     "lodash": "^4.17.4",
     "moment": "2.17.1",
     "webpack": "2.1.0-beta.25",

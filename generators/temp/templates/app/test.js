@@ -1,1 +1,5 @@
-// console.log('woo');
+/* @flow */
+
+export default function () {
+  console.log('hi');
+}

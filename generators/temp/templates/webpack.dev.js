@@ -11,7 +11,7 @@ module.exports = function webpackConfig() {
     },
     devtool: 'source-map',
     output: {
-      filename: '[chunkhash].[name].js',
+      filename: '[chunkhash].[name].min.js',
       path: path.resolve(__dirname, 'build')
     },
     module: {
