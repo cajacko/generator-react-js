@@ -41,6 +41,12 @@
   "settings": {
     "flowtype": {
       "onlyFilesWithFlowAnnotation": true
+    },
+    // So eslint understands Webpacks name alias'
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.dev.js"
+      }
     }
   },
   "globals": {

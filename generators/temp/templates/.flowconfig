@@ -6,3 +6,5 @@
 [libs]
 
 [options]
+# So flow can understand webpacks alias
+module.name_mapper='Src/\(.*\)' -> '<PROJECT_ROOT>/src/\1'

@@ -1,5 +1,9 @@
 /* @flow */
 
+import test from 'Src/test';
+
+test();
+
 function add(num1: number, num2: number) {
   return num1 + num2;
 }
