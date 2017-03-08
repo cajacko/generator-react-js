@@ -18,10 +18,19 @@ module.exports = (env = {}) => {
       main: './src/index.js',
     },
 
-    // Out put with cache buster names
     output: {
+      // Out put with cache buster names
       filename: '[chunkhash].[name].js',
-      path: path.resolve(__dirname, 'build')
+
+      // Change build path for production and dev, makes it more obvious when
+      // production build needs to happen
+      path: (() => {
+        if (isProduction) {
+          return path.resolve(__dirname, 'build/production');
+        }
+
+        return path.resolve(__dirname, 'build/development');
+      })()
     },
 
     // Enables sourcemaps
