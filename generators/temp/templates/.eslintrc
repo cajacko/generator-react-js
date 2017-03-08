@@ -45,7 +45,7 @@
     // So eslint understands Webpacks name alias'
     "import/resolver": {
       "webpack": {
-        "config": "webpack.dev.js"
+        "config": "webpack.config.js"
       }
     }
   },
