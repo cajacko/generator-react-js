@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run lint && npm run flow:skip",
-    "build:dev": "webpack --env=dev --progress --profile --colors",
-    "build:prod": "webpack --env=prod --progress --profile --colors",
+    "build:dev": "webpack --progress --profile --colors",
+    "build:prod": "webpack -p --env.production --progress --profile --colors",
     "flow": "flowcheck",
     "flow:skip": "flowcheck check --skip-check",
     "lint": "eslint **/*.js",

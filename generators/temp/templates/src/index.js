@@ -1,5 +1,6 @@
 /* @flow */
 
+import _ from 'lodash';
 import test from 'Src/test';
 
 test();
