@@ -35,12 +35,8 @@ module.exports = (env = {}) => {
 
     // Enables sourcemaps
     devtool: (() => {
-      // return 'source-map';
-      // TODO: Need to decide which is best for what, and dev performance on
-      // large code base
-
       if (isProduction) {
-        return 'hidden-source-map';
+        return 'source-map';
       }
 
       return 'cheap-module-eval-source-map';
