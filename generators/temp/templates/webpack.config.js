@@ -19,8 +19,15 @@ module.exports = (env = {}) => {
     },
 
     output: {
-      // Out put with cache buster names
-      filename: '[chunkhash].[name].js',
+      // Out put with cache buster names in production
+      filename: (() => {
+        if (isProduction) {
+          return '[chunkhash].[name].js';
+        }
+
+        // No hash for dev as it adds to compliation time
+        return '[name].js';
+      })(),
 
       // Change build path for production and dev, makes it more obvious when
       // production build needs to happen
@@ -85,7 +92,14 @@ module.exports = (env = {}) => {
       // Capture the manifest in a json file
       // This outputs a json file with each easy bundle name mapped to its hash
       // name. Then our templating engine can require the correct file
-      new ManifestPlugin()
+      // Only in production though, as no hashes are used otherwise
+      (() => {
+        if (isProduction) {
+          return new ManifestPlugin();
+        }
+
+        return () => {};
+      })()
     ],
 
     // Create import alias' so we don't have to have tedious relative paths
