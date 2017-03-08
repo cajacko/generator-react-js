@@ -3,6 +3,7 @@ const path = require('path');
 const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const ManifestPlugin = require('webpack-manifest-plugin');
+const WebpackChunkHash = require('webpack-chunk-hash');
 
 module.exports = (env = {}) => {
   let isProduction;
@@ -85,9 +86,17 @@ module.exports = (env = {}) => {
       }),
 
       // Split out the manifest
+      // TODO: This doesn't seem to change often, can this be included in
+      // vendor?
       new webpack.optimize.CommonsChunkPlugin({
         names: ['manifest'] // Specify the common bundle's name.
       }),
+
+      // Improves logging in the console
+      new webpack.HashedModuleIdsPlugin(),
+
+      // Better hashing than the standard
+      new WebpackChunkHash(),
 
       // Capture the manifest in a json file
       // This outputs a json file with each easy bundle name mapped to its hash

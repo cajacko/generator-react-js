@@ -1,6 +1,8 @@
 {
-  "main.js": "8ed06d7e2d99634c9dbf.main.js",
-  "main.js.map": "8ed06d7e2d99634c9dbf.main.js.map",
-  "manifest.js": "dc05845c00b329935e3d.manifest.js",
-  "manifest.js.map": "dc05845c00b329935e3d.manifest.js.map"
+  "main.js": "055705f52804c02c2128.main.js",
+  "main.js.map": "055705f52804c02c2128.main.js.map",
+  "manifest.js": "d41d8cd98f00b204e980.manifest.js",
+  "manifest.js.map": "d41d8cd98f00b204e980.manifest.js.map",
+  "vendor.js": "278f7181008e7f635629.vendor.js",
+  "vendor.js.map": "278f7181008e7f635629.vendor.js.map"
 }
