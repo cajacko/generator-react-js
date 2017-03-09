@@ -6,12 +6,13 @@
   "scripts": {
     "test": "npm run lint && npm run flow:skip",
     "build:dev": "webpack --progress --profile --colors",
-    "build:prod": "webpack -p --env.production --progress --profile --colors",
+    "build:prod": "webpack --env.production --progress --profile --colors",
     "flow": "flowcheck",
     "flow:skip": "flowcheck check --skip-check",
     "lint": "eslint **/*.js",
     "eslint": "eslint",
-    "flow:check": "flow check"
+    "watch:dev": "node watch.js",
+    "watch:prod": "node watch.js --env.production"
   },
   "keywords": [],
   "author": "",
@@ -32,8 +33,10 @@
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-jsx-a11y": "4.0.0",
     "eslint-plugin-react": "6.10.0",
+    "html-webpack-plugin": "2.28.0",
     "postcss-loader": "0.9.1",
     "react-hot-loader": "3.0.0-beta.6",
+    "serve": "4.0.2",
     "style-loader": "0.13.1",
     "webpack": "2.1.0-beta.25",
     "webpack-chunk-hash": "0.4.0",
@@ -42,6 +45,7 @@
   "dependencies": {
     "babel-cli": "6.23.0",
     "babel-plugin-transform-flow-strip-types": "6.22.0",
+    "browser-sync": "2.18.8",
     "clean-webpack-plugin": "0.1.15",
     "flow-check": "0.2.0",
     "lodash": "4.17.4",

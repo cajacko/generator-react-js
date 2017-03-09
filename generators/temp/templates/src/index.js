@@ -4,6 +4,10 @@ import moment from 'moment';
 import test from 'Src/test';
 import yeah from 'Src/woo';
 
+setInterval(() => {
+  console.log('yay, choo');
+}, 1000);
+
 let woo;
 
 if (process.env.NODE_ENV === 'production') {

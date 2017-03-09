@@ -4,6 +4,7 @@ const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const ManifestPlugin = require('webpack-manifest-plugin');
 const WebpackChunkHash = require('webpack-chunk-hash');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = (env = {}) => {
   let isProduction;
@@ -34,10 +35,10 @@ module.exports = (env = {}) => {
       // production build needs to happen
       path: (() => {
         if (isProduction) {
-          return path.resolve(__dirname, 'build/production');
+          return path.resolve(__dirname, 'dist/prod');
         }
 
-        return path.resolve(__dirname, 'build/development');
+        return path.resolve(__dirname, 'dist/dev');
       })()
     },
 
@@ -59,15 +60,64 @@ module.exports = (env = {}) => {
     },
 
     plugins: [
+      (() => {
+        if (isProduction) {
+          return new webpack.optimize.UglifyJsPlugin({
+            beautify: false,
+            mangle: {
+              screw_ie8: true,
+              keep_fnames: true
+            },
+            compress: {
+              screw_ie8: true,
+              warnings: false
+            },
+            comments: false,
+            warngins: false
+          });
+        }
+
+        return () => {};
+      })(),
+
+      (() => {
+        if (isProduction) {
+          return new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify('production')
+          });
+        }
+
+        return () => {};
+      })(),
+
+      (() => {
+        if (isProduction) {
+          return new webpack.LoaderOptionsPlugin({
+            minimize: true,
+            debug: false
+          });
+        }
+
+        return () => {};
+      })(),
+
       // Bundle analyzer lets you observe what each webpack budle is made up of
       // Generates a report.html file in the output folder
-      new BundleAnalyzerPlugin({
-        analyzerMode: 'static',
-        openAnalyzer: false
-      }),
+      (() => {
+        if (isProduction) {
+          return new BundleAnalyzerPlugin({
+            analyzerMode: 'static',
+            openAnalyzer: false
+          });
+        }
+
+        return () => {};
+      })(),
 
       // Remove old budles before creating new ones
       new WebpackCleanupPlugin(),
+
+      new HtmlWebpackPlugin(),
 
       // Split all node modules into seperate bundle
       new webpack.optimize.CommonsChunkPlugin({
