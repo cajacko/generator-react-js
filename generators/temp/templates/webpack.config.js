@@ -73,8 +73,7 @@ module.exports = (env = {}) => {
               screw_ie8: true,
               warnings: false
             },
-            comments: false,
-            warngins: false
+            comments: false
           });
         }
 
