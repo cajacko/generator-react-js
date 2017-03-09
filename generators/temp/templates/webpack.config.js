@@ -63,6 +63,7 @@ module.exports = (env = {}) => {
       (() => {
         if (isProduction) {
           return new webpack.optimize.UglifyJsPlugin({
+            sourceMap: true,
             beautify: false,
             mangle: {
               screw_ie8: true,
